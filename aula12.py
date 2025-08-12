@@ -19,7 +19,7 @@ closed = cv.morphologyEx(th, cv.MORPH_CLOSE, kernel, interations=2)
 conts, _ = cv.findCountours(closed, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
 mask = np.zeros(img.shape, dtype = np.uint8)  #cria matriz com mesmo tamanho da imagem para usar de máscara.
-cv.drawCountours(mask, conts, -1, 255, cv.FILLED)
+cv.drawCountours(mask, conts, -1, color=255, thickness=cv.FILLED)
 seg = cv.bitwise_and(img, img, mask=mask)
 
 res = np.hstack([th, mag])
